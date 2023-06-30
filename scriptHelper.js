@@ -25,7 +25,7 @@ function validateInput(testInput) {
     if (typeof (testInput) != 'number') {
         returnString = 'Not a Number'
     }
-    if (inputThing.trim.length == 0) {
+    if (testInput.trim.length == 0) {
         returnString = 'Empty'
     }
 
