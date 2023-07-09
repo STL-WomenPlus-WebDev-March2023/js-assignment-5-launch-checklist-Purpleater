@@ -1,4 +1,5 @@
 // Write your helper functions here!
+
 require('isomorphic-fetch');
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
@@ -33,6 +34,67 @@ function validateInput(testInput) {
 }
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
+
+    let validationErrorList = []
+
+    let pilotStatus = document.getElementById("pilotStatus");
+    let copilotStatus = document.getElementById("copilotStatus");
+    let fuelStatus = document.getElementById("fuelStatus");
+    let cargoStatus = document.getElementById("cargoStatus");
+    let launchStatus = document.getElementById("launchStatus")
+
+    // this ensures that the inputs of the form are not empty, specifying which are not valid 
+    if (validateInput(pilot) != 'Not a Number'){
+        validationErrorList.push("Pilot Name");
+    }
+    if(validateInput(copilot) != 'Not a Number'){
+        validationErrorList.push("Copilot Name");
+    }
+    if(validateInput(fuelLevel) != "Is a Number"){
+        validationErrorList.push("Fuel Level");
+    }
+    if (validateInput(cargoLevel) != "Is a Number"){
+        validationErrorList.push("Cargo Mass");
+    }
+
+    if (validationErrorList.length != 0){
+        window.alert(`The following values you have provided are invalid: ${validationErrorList}`);
+    }
+    else{
+
+        faultyItemsValidation = true;
+
+        pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
+        copilotStatus.innerHTML = `Copilot ${copilot} is ready for launch`;
+
+        if (fuelLevel < 10000){
+            fuelStatus.innerHTML = "Fuel level too low for launch";
+            faultyItemsValidation = false;
+        }
+        if (cargoLevel > 10000){
+            cargoStatus.innerHTML = "Cargo mass too heavy for launch";
+            faultyItemsValidation = false;
+        }
+
+        if (faultyItemsValidation == true){
+            list.style.visibility = "hidden";
+
+            launchStatus.innerHTML = "Shuttle is ready for launch";
+            launchStatus.style.color = "green";            
+        }
+        else{
+            list.style.visibility = "visible";
+
+            launchStatus.innerHTML = "Shuttle not ready for launch";
+            launchStatus.style.color = "red";
+        }
+
+        
+
+    }
+
+
+
 
 }
 
