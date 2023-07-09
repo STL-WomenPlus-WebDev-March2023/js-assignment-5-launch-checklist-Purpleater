@@ -35,6 +35,7 @@ function validateInput(testInput) {
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 
+<<<<<<< HEAD
     let validationErrorList = []
 
     let pilotStatus = document.getElementById("pilotStatus");
@@ -95,6 +96,29 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 
 
 
+=======
+    // make sure that the input values are correct
+    let validation = true;
+
+    if (validateInput(pilot) != "Not a Number" ||
+        validateInput(copilot) != "Not a Number" ||
+        validateInput(fuelLevel) != "Is a Number" ||
+        validateInput(cargoLevel) != "Is a Number") {
+        validation = false;
+    }
+
+    if (validation == false) {
+        window.alert("One or more fields feature an invalid input.");
+    }
+    else{
+        list.style.visibility="visible";
+    }
+
+    // update the launch list
+
+    
+    
+>>>>>>> ecdffb0576d72b1efe4cba47f6c66e8fa6eea3d6
 
 }
 
@@ -109,6 +133,7 @@ async function myFetch() {
 
 function pickPlanet(planets) {
 }
+
 
 module.exports.addDestinationInfo = addDestinationInfo;
 module.exports.validateInput = validateInput;
