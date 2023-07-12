@@ -51,7 +51,7 @@ describe ("GRADING DOM MANIPULATION TEST: ", function () {
       expect(studentFunctions.validateInput("10")).toEqual("Is a Number");
    })
 
-   it ("Launch CheckList is ready to go", function() {
+   it ("Launch CheckList is Ready to go", function() {
       // Check page before form submission to make sure everything is working
      expect(list.style.visibility).toEqual("hidden"); 
      expect(pilotStatus.textContent).toEqual("Pilot Ready");

@@ -74,9 +74,16 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
             fuelStatus.innerHTML = "Fuel level too low for launch";
             faultyItemsValidation = false;
         }
+        else{
+            fuelStatus.innerHTML = "Fuel level high enough for launch";
+        }
         if (cargoLevel > 10000) {
             cargoStatus.innerHTML = "Cargo mass too heavy for launch";
             faultyItemsValidation = false;
+        }
+        else{
+            cargoStatus.innerHTML = "Cargo mass low enough for launch";
+            
         }
 
         if (faultyItemsValidation == true) {
