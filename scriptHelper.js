@@ -31,7 +31,7 @@ function validateInput(testInput) {
     if (!isNaN(testInput.toString())) {
         returnString = "Is a Number"
     }
-    if (testInputtoString().trim().length == 0) {
+    if (testInput.toString().trim().length == 0) {
         returnString = "Empty"
     }
     return returnString;
